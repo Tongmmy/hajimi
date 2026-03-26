@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>哈基咪翻译器</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <main class="app-frame">
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Hajimi Translator</p>
+            <h1>哈基咪翻译器</h1>
+            <p class="hero-copy">把人类语变成哈基咪语，反之亦然。</p>
+          </div>
+        </section>
+
+        <section class="panel translator-panel">
+          <header class="panel-header">
+            <div>
+              <p class="panel-kicker">当前模式</p>
+              <h2 id="modeLabel">人类 -> 哈基咪</h2>
+              <p class="panel-copy" id="modeSummary">正在把人类语整理成哈基咪语。</p>
+            </div>
+            <label class="field compact-field">
+              <span>方言 / 密钥</span>
+              <input id="keyInput" type="text" placeholder="输入方言（密钥）" />
+            </label>
+          </header>
+
+          <div class="editor-grid">
+            <label class="field editor-field">
+              <span id="inputLabel">人类输入</span>
+              <textarea id="inputBox" placeholder="今晚一起去看极光吗？"></textarea>
+              <small id="inputStats">字数 0 / 词数 0</small>
+            </label>
+
+            <div class="swap-rail">
+              <button
+                id="swapButton"
+                class="swap-button swap-button-center"
+                type="button"
+                aria-label="互换翻译方向"
+                title="互换翻译方向"
+              >
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M7 7h10l-3-3" />
+                    <path d="m17 7-3-3" />
+                    <path d="M17 17H7l3 3" />
+                    <path d="m7 17 3 3" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+
+            <label class="field editor-field">
+              <span id="outputLabel">哈基咪输出</span>
+              <textarea id="outputBox" readonly placeholder="结果会显示在这里"></textarea>
+              <small id="outputStats">字数 0 / 词数 0</small>
+            </label>
+          </div>
+
+          <div class="toolbar">
+            <button id="pasteButton" class="tool-button" type="button">
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M9 4h6v3H9zM7 7h10a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z" />
+                </svg>
+              </span>
+              粘贴
+            </button>
+            <button id="clearButton" class="tool-button" type="button">
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M5 7h14M10 11v5M14 11v5M8 7l1-2h6l1 2M8 7l1 12h6l1-12" />
+                </svg>
+              </span>
+              清空
+            </button>
+            <button id="copyButton" class="tool-button" type="button">
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M8 8h9v11H8zM5 5h9" />
+                </svg>
+              </span>
+              复制
+            </button>
+          </div>
+
+          <p id="statusMessage" class="status-message hint">结果会自动更新，同输入和同密钥会得到同一段哈基咪语。</p>
+        </section>
+
+        <section class="panel history-panel">
+          <header class="panel-header">
+            <div>
+              <p class="panel-kicker">本地记录</p>
+              <h2>最近对话</h2>
+            </div>
+            <button id="clearHistoryButton" class="text-button" type="button">清空记录</button>
+          </header>
+          <div id="historyList" class="history-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
